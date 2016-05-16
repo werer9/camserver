@@ -6,13 +6,18 @@
 	<body>
 		<h1 class="h">Webcam Server</h1>
 		<h2 class="h">Live Stream</h2>
-		<img class="shrinkToFit" alt="http://192.168.0.113:8081/" src="http://192.168.0.113:8081/" height="436" width="436">
+		<img class="shrinkToFit" alt="http://localhost:8081/" src="http://172.17.19.171:8081/" height="720" width="1280">
+		<br>
 		<button id="start">Start</button>
 		<button id="shut"> Shutdown</button>
 		<h2 class="h">Images</h2>
+		<!--Php Code-->
 		<?php 
-			$str = shell_exec("ls ../");
-			print($str);
+			$dirname = "cam/";
+			$images = glob($dirname."*.jpg");
+			foreach($images as $image) {
+				echo '<img src="'.$image.'" /><br />';
+			}		
 		?>
 	</body>
 </html>
